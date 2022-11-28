@@ -1,13 +1,18 @@
 import Soundex from "./Soundex";
 
-function soundexFor(word: string) {
-    return new Soundex(word).code;
+function soundexFor(name: string): string[] {
+    return new Soundex(name).codes;
 }
 
 test("generates the correct soundex code", () => {
-    expect(soundexFor("Master")).toBe("M236");
-    expect(soundexFor("Peterson")).toBe("P362");
-    expect(soundexFor("JUE")).toBe("J000");
+    expect(soundexFor("Master")[0]).toBe("M236");
+    expect(soundexFor("Peterson")[0]).toBe("P362");
+    expect(soundexFor("JUE")[0]).toBe("J000");
 });
 
-// STREAM PAUSADA TO MUTADO
+test("generates correct codes for full names", () => {
+    let masterPeterson = soundexFor("Master Peterson");
+
+    expect(masterPeterson[0]).toBe("M236");
+    expect(masterPeterson[1]).toBe("P362");
+});

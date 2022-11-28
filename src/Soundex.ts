@@ -1,7 +1,11 @@
 export default class Soundex {
-    public code: string;
+    public codes: string[];
 
     public constructor(name: string) {
+        this.codes = name.split(" ").map(this.encode);
+    }
+
+    private encode(name: string): string {
         let code = "";
 
         name = name
@@ -15,6 +19,8 @@ export default class Soundex {
         name = name.substring(1);
 
         for (let char of name) {
+            if (code.length >= 4) break;
+
             let digit = "";
 
             if ("AEIOUWY".includes(char)) {
@@ -36,10 +42,11 @@ export default class Soundex {
             }
 
             if (digit !== code[code.length - 1])
-                code = code.concat(digit);
+                code = code + digit;
         }
 
-        while (code.length < 4) code = code.concat("0");
-        this.code = code.substring(0, 4);
+        while (code.length < 4) code = code + "0";
+
+        return code;
     }
 }
