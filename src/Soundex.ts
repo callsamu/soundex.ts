@@ -23,9 +23,7 @@ export default class Soundex {
 
             let digit = "";
 
-            if ("AEIOUWY".includes(char)) {
-                continue; // Remove all zeroes
-            } else if ("BFPV".includes(char)) {
+            if ("BFPV".includes(char)) {
                 digit = "1";
             } else if ("CGJKQSXZ".includes(char)) {
                 digit = "2";
