@@ -13,6 +13,15 @@ test("generates the correct soundex code", () => {
 test("generates correct codes for full names", () => {
     let masterPeterson = soundexFor("Master Peterson");
 
+    expect(masterPeterson.length).toBe(2);
     expect(masterPeterson[0]).toBe("M236");
     expect(masterPeterson[1]).toBe("P362");
+});
+
+test("clears non-english characters", () => {
+    expect(soundexFor("M4S%t@!*)r")[0]).toBe("M236");
+});
+
+test("throws error when it doesn't find non-english characters", () => {
+    expect(() => soundexFor("!@&#á")).toThrow();
 });
