@@ -5,6 +5,18 @@ export default class Soundex {
         this.codes = name.split(" ").map(this.encode);
     }
 
+    public isEqualTo(soundex: Soundex): boolean {
+        const { codes } = soundex;
+
+        if (this.codes.length !== codes.length) return false;
+
+        this.codes.forEach((value, index) => {
+            if (value !== codes[index]) return false;
+        });
+
+        return true;
+    }
+
     private encode(name: string): string {
         let code = "";
 

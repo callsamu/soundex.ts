@@ -25,3 +25,10 @@ test("clears non-english characters", () => {
 test("throws error when it doesn't find non-english characters", () => {
     expect(() => soundexFor("!@&#á")).toThrow();
 });
+
+test("correctly checks for equality", () => {
+    const soundex = new Soundex("Jordan Belford");
+    expect(soundex.isEqualTo(soundex)).toBeTruthy();
+    expect(soundex.isEqualTo(new Soundex("Jordan Belfort"))).toBeTruthy();
+    expect(soundex.isEqualTo(new Soundex("Jordan"))).toBeFalsy();
+});
