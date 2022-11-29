@@ -32,3 +32,11 @@ test("correctly checks for equality", () => {
     expect(soundex.isEqualTo(new Soundex("Jordan Belfort"))).toBeTruthy();
     expect(soundex.isEqualTo(new Soundex("Jordan"))).toBeFalsy();
 });
+
+test("compares to another soundex", () => {
+    let soundex = new Soundex("George"); // code = "G620"
+
+    expect(soundex.compareTo(soundex)).toBe(0);
+    expect(soundex.compareTo(new Soundex("Jorge"))).toBe(1); // code = "J620"
+    expect(soundex.compareTo(new Soundex("Jorge Michael"))).toBe(5); // code = "J620"
+});

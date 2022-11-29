@@ -10,11 +10,34 @@ export default class Soundex {
 
         if (this.codes.length !== codes.length) return false;
 
-        this.codes.forEach((value, index) => {
-            if (value !== codes[index]) return false;
+        this.codes.forEach((code, index) => {
+            if (code !== codes[index]) return false;
         });
 
         return true;
+    }
+
+    public compareTo(soundex: Soundex): number {
+        let counter = 0;
+        const codes = soundex.codes;
+
+        this.codes.forEach((code, index) => {
+            counter += this.codeDistance(code, codes[index]);
+        });
+
+        counter += 4 * Math.abs(this.codes.length - codes.length);
+
+        return counter;
+    }
+
+    private codeDistance(code1: string, code2: string): number {
+        let counter = 0;
+
+        for (let i = 0; i < 4; i++) {
+            if (code1[i] !== code2[i]) counter++;
+        }
+
+        return counter;
     }
 
     private encode(name: string): string {
