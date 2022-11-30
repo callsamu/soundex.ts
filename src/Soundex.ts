@@ -1,7 +1,7 @@
 export default class Soundex {
-    public codes: string[];
+    readonly codes: string[];
 
-    public constructor(name: string) {
+    public constructor(readonly name: string) {
         this.codes = name.split(" ").map(this.encode);
     }
 
