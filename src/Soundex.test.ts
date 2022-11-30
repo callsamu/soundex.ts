@@ -34,9 +34,9 @@ test("correctly checks for equality", () => {
 });
 
 test("compares to another soundex", () => {
-    let soundex = new Soundex("George"); // code = "G620"
+    let soundex = new Soundex("George");
 
     expect(soundex.compareTo(soundex)).toBe(0);
-    expect(soundex.compareTo(new Soundex("Jorge"))).toBe(1); // code = "J620"
-    expect(soundex.compareTo(new Soundex("Jorge Michael"))).toBe(5); // code = "J620"
+    expect(soundex.compareTo(new Soundex("Jorge"))).toBe(1);
+    expect(soundex.compareTo(new Soundex("Jorge Michael"))).toBe(5);
 });
