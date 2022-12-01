@@ -2,7 +2,9 @@
   "name": "soundex.ts",
   "version": "1.0.0",
   "description": "Typescript implementation of the soundex phonetic search algorithm.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.ds.js",
+  "files": ["/dist"],
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.build.json"
