@@ -32,9 +32,9 @@ test("throws error when it doesn't find non-english characters", () => {
 
 test("correctly checks for equality", () => {
     const soundex = new Soundex("Jordan Belford");
-    expect(soundex.isEqualTo(soundex)).toBeTruthy();
-    expect(soundex.isEqualTo(new Soundex("Jordan Belfort"))).toBeTruthy();
-    expect(soundex.isEqualTo(new Soundex("Jordan"))).toBeFalsy();
+    expect(soundex.matches(soundex)).toBeTruthy();
+    expect(soundex.matches(new Soundex("Jordan Belfort"))).toBeTruthy();
+    expect(soundex.matches(new Soundex("Jordan"))).toBeFalsy();
 });
 
 test("compares to another soundex", () => {

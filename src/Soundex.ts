@@ -5,7 +5,7 @@ export class Soundex {
         this.codes = name.split(" ").map(this.encode);
     }
 
-    public isEqualTo(soundex: Soundex): boolean {
+    public matches(soundex: Soundex): boolean {
         const { codes } = soundex;
 
         if (this.codes.length !== codes.length) return false;
