@@ -30,6 +30,13 @@ export default class Soundex {
         return counter;
     }
 
+    public sortByDistance(names: string[]): string[] {
+        return names.
+            map((name) => new Soundex(name)).
+            sort((a, b) => this.compareTo(a) - this.compareTo(b)).
+            map((soundex) => soundex.name);
+    }
+
     private codeDistance(code1: string, code2: string): number {
         let counter = 0;
 
