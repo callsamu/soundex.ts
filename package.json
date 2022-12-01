@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Typescript implementation of the soundex phonetic search algorithm.",
   "main": "dist/index.js",
-  "types": "dist/index.ds.js",
+  "types": "dist/index.d.ts",
   "files": ["/dist"],
   "scripts": {
     "test": "jest",
