@@ -1,4 +1,4 @@
-export default class Soundex {
+export class Soundex {
     readonly codes: string[];
 
     public constructor(readonly name: string) {

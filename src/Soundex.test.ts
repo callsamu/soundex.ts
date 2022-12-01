@@ -1,4 +1,4 @@
-import Soundex from "./Soundex";
+import { Soundex } from "./Soundex";
 
 function soundexFor(name: string): string[] {
     return new Soundex(name).codes;
